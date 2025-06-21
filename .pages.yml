@@ -1,0 +1,8 @@
+content:
+  - name: posts
+    label: Posts
+    path: content
+    type: collection
+    fields: [ { name: title, type: text }, { name: date, type: date } ]
+        
+        
