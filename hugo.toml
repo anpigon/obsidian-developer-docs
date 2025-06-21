@@ -1,0 +1,39 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'Obsidian Developer Docs'
+theme = 'docsy'
+
+[params]
+# Docsy-specific params
+# For more options, see https://www.docsy.dev/docs/getting-started/#configuring-your-site
+# Enable search
+offlineSearch = true
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[languages]
+[languages.en]
+languageName = "English"
+contentDir = "content/en"
+weight = 1
+
+[languages.ko]
+languageName = "한국어"
+contentDir = "content/ko"
+weight = 2
+
+# Hugo Modules
+[module]
+  [[module.imports]]
+    path = "github.com/google/docsy"
+    disable = false
+  [[module.imports.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.imports.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.imports.mounts]]
+    source = "static"
+    target = "static"

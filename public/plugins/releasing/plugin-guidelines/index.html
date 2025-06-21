@@ -1,0 +1,354 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Obsidian Developer Docs</title>
+<meta name="description" content="This page lists common review comments plugin authors get when submitting their plugin.
+While the guidelines on this page are recommendations, depending on their severity, we may still require you to address any violations.
+[!important] Policies for plugin developers Make sure that you’ve read our [[Developer policies]] as well as the [[Submission requirements for plugins]].
+General Avoid using global app instance Avoid using the global app object, app (or window.app). Instead, use the reference provided by your plugin instance, this.app.">
+<meta property="og:url" content="http://localhost:1313/plugins/releasing/plugin-guidelines/">
+  <meta property="og:site_name" content="Obsidian Developer Docs">
+  <meta property="og:title" content="Obsidian Developer Docs">
+  <meta property="og:description" content="This page lists common review comments plugin authors get when submitting their plugin.
+While the guidelines on this page are recommendations, depending on their severity, we may still require you to address any violations.
+[!important] Policies for plugin developers Make sure that you’ve read our [[Developer policies]] as well as the [[Submission requirements for plugins]].
+General Avoid using global app instance Avoid using the global app object, app (or window.app). Instead, use the reference provided by your plugin instance, this.app.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="plugins">
+
+  <meta itemprop="name" content="Obsidian Developer Docs">
+  <meta itemprop="description" content="This page lists common review comments plugin authors get when submitting their plugin.
+While the guidelines on this page are recommendations, depending on their severity, we may still require you to address any violations.
+[!important] Policies for plugin developers Make sure that you’ve read our [[Developer policies]] as well as the [[Submission requirements for plugins]].
+General Avoid using global app instance Avoid using the global app object, app (or window.app). Instead, use the reference provided by your plugin instance, this.app.">
+  <meta itemprop="wordCount" content="1775">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Obsidian Developer Docs">
+  <meta name="twitter:description" content="This page lists common review comments plugin authors get when submitting their plugin.
+While the guidelines on this page are recommendations, depending on their severity, we may still require you to address any violations.
+[!important] Policies for plugin developers Make sure that you’ve read our [[Developer policies]] as well as the [[Submission requirements for plugins]].
+General Avoid using global app instance Avoid using the global app object, app (or window.app). Instead, use the reference provided by your plugin instance, this.app.">
+<link href="/scss/main.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">Obsidian Developer Docs</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown d-none d-lg-block">
+        <div class="dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/ko/plugins/releasing/plugin-guidelines/">한국어</a></li>
+    </ul>
+</div></li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-default td-outer">
+      <main role="main" class="td-main">
+        <p>This page lists common review comments plugin authors get when submitting their plugin.</p>
+<p>While the guidelines on this page are recommendations, depending on their severity, we may still require you to address any violations.</p>
+<blockquote>
+<p>[!important] Policies for plugin developers
+Make sure that you&rsquo;ve read our [[Developer policies]] as well as the [[Submission requirements for plugins]].</p></blockquote>
+<h2 id="general">General</h2>
+<h3 id="avoid-using-global-app-instance">Avoid using global app instance</h3>
+<p>Avoid using the global app object, <code>app</code> (or <code>window.app</code>). Instead, use the reference provided by your plugin instance, <code>this.app</code>.</p>
+<p>The global app object is intended for debugging purposes and might be removed in the future.</p>
+<h3 id="avoid-unnecessary-logging-to-console">Avoid unnecessary logging to console</h3>
+<p>Please avoid unnecessary logging.
+In it&rsquo;s default configuration, the developer console should only show error messages, debug messages should not be shown.</p>
+<h3 id="consider-organizing-your-code-base-using-folders">Consider organizing your code base using folders</h3>
+<p>If your plugin uses more than one <code>.ts</code> file, consider organizing them into folders to make it easier to review and maintain.</p>
+<h3 id="rename-placeholder-class-names">Rename placeholder class names</h3>
+<p>The sample plugin contains placeholder names for common classes, such as <code>MyPlugin</code>, <code>MyPluginSettings</code>, and <code>SampleSettingTab</code>. Rename these to reflect the name of your plugin.</p>
+<h2 id="mobile">Mobile</h2>
+<p>![[Mobile development#Node and Electron APIs]]</p>
+<p>![[Mobile development#Lookbehind in regular expressions]]</p>
+<h2 id="ui-text">UI text</h2>
+<p>This section lists guidelines for formatting text in the user interface, such as settings, commands, and buttons.</p>
+<p>The example below from <strong>Settings → Appearance</strong> demonstrates the guidelines for text in the user interface.</p>
+<p>![[settings-headings.png]]</p>
+<ol>
+<li>[[#Only use headings under settings if you have more than one section.|General settings are at the top and don&rsquo;t have a heading]].</li>
+<li>[[#Avoid &ldquo;settings&rdquo; in settings headings|Section headings don&rsquo;t have &ldquo;settings&rdquo; in the heading text]].</li>
+<li>[[#Use Sentence case in UI]].</li>
+</ol>
+<p>For more information on writing and formatting text for Obsidian, refer to our <a href="https://help.obsidian.md/Contributing&#43;to&#43;Obsidian/Style&#43;guide">Style guide</a>.</p>
+<h3 id="only-use-headings-under-settings-if-you-have-more-than-one-section">Only use headings under settings if you have more than one section.</h3>
+<p>Avoid adding a top-level heading in the settings tab, such as &ldquo;General&rdquo;, &ldquo;Settings&rdquo;, or the name of your plugin.</p>
+<p>If you have more than one section under settings, and one contains general settings, keep them at the top without adding a heading.</p>
+<p>For example, look at the settings under <strong>Settings → Appearance</strong>.</p>
+<h3 id="avoid-settings-in-settings-headings">Avoid &ldquo;settings&rdquo; in settings headings</h3>
+<p>In the settings tab, you can add headings to organize settings. Avoid including the word &ldquo;settings&rdquo; to these headings. Since everything in under the settings tab is settings, repeating it for every heading becomes redundant.</p>
+<ul>
+<li>Prefer &ldquo;Advanced&rdquo; over &ldquo;Advanced settings&rdquo;.</li>
+<li>Prefer &ldquo;Templates&rdquo; over &ldquo;Settings for templates&rdquo;.</li>
+</ul>
+<h3 id="use-sentence-case-in-ui">Use sentence case in UI</h3>
+<p>Any text in UI elements should be using <a href="https://en.wiktionary.org/wiki/sentence_case">Sentence case</a> instead of <a href="https://en.wikipedia.org/wiki/Title_case">Title Case</a>, where only the first word in a sentence, and proper nouns, should be capitalized.</p>
+<ul>
+<li>Prefer &ldquo;Template folder location&rdquo; over &ldquo;Template Folder Location&rdquo;.</li>
+<li>Prefer &ldquo;Create new note&rdquo; over &ldquo;Create New Note&rdquo;.</li>
+</ul>
+<h3 id="use-setheading-instead-of-a-h1-h2">Use <code>setHeading</code> instead of a <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code></h3>
+<p>Using the heading elements from HTML will result in inconsistent styling between different plugins.
+Instead you should prefer the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Setting</span>(<span style="color:#a6e22e">containerEl</span>).<span style="color:#a6e22e">setName</span>(<span style="color:#e6db74">&#39;your heading title&#39;</span>).<span style="color:#a6e22e">setHeading</span>();
+</span></span></code></pre></div><h2 id="security">Security</h2>
+<h3 id="avoid-innerhtml-outerhtml-and-insertadjacenthtml">Avoid <code>innerHTML</code>, <code>outerHTML</code> and <code>insertAdjacentHTML</code></h3>
+<p>Building DOM elements from user-defined input, using <code>innerHTML</code>, <code>outerHTML</code> and <code>insertAdjacentHTML</code> can pose a security risk.</p>
+<p>The following example builds a DOM element using a string that contains user input, <code>${name}</code>. <code>name</code> can contain other DOM elements, such as <code>&lt;script&gt;alert()&lt;/script&gt;</code>, and can allow a potential attacker to execute arbitrary code on the user&rsquo;s computer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">showName</span>(<span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">containerElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;.my-container&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// DON&#39;T DO THIS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">containerElement</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`&lt;div class=&#34;my-class&#34;&gt;&lt;b&gt;Your name is: &lt;/b&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/div&gt;`</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Instead, use the DOM API or the Obsidian helper functions, such as <code>createEl()</code>, <code>createDiv()</code> and <code>createSpan()</code> to build the DOM element programmatically. For more information, refer to [[HTML elements]].</p>
+<p>To cleanup a HTML elements contents use <code>el.empty();</code></p>
+<h2 id="resource-management">Resource management</h2>
+<h3 id="clean-up-resources-when-plugin-unloads">Clean up resources when plugin unloads</h3>
+<p>Any resources created by the plugin, such as event listeners, must be destroyed or released when the plugin unloads.</p>
+<p>When possible, use methods like [[registerEvent|registerEvent()]] or [[addCommand|addCommand()]] to automatically clean up resources when the plugin unloads.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyPlugin</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Plugin</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onload() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">registerEvent</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;create&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">onCreate</span>));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onCreate</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">file</span>: <span style="color:#66d9ef">TAbstractFile</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>[!note]
+You don&rsquo;t need to clean up resources that are guaranteed to be removed when your plugin unloads. For example, if you register a <code>mouseenter</code> listener on a DOM element, the event listener will be garbage-collected when the element goes out of scope.</p></blockquote>
+<h3 id="dont-detach-leaves-in-onunload">Don&rsquo;t detach leaves in <code>onunload</code></h3>
+<p>When the user updates your plugin, any open leaves will be reinitialized at their original position, regardless of where the user had moved them.</p>
+<h2 id="commands">Commands</h2>
+<h3 id="avoid-setting-a-default-hotkey-for-commands">Avoid setting a default hotkey for commands</h3>
+<p>Setting a default hotkey may lead to conflicts between plugins and may override hotkeys that the user has already configured.</p>
+<p>It&rsquo;s also difficult to choose a default hotkey that is available on all operating systems.</p>
+<h3 id="use-the-appropriate-callback-type-for-commands">Use the appropriate callback type for commands</h3>
+<p>When you add a command in your plugin, use the appropriate callback type.</p>
+<ul>
+<li>Use <code>callback</code> if the command runs unconditionally.</li>
+<li>Use <code>checkCallback</code> if the command only runs under certain conditions.</li>
+</ul>
+<p>If the command requires an open and active Markdown editor, use <code>editorCallback</code>, or the corresponding <code>editorCheckCallback</code>.</p>
+<h2 id="workspace">Workspace</h2>
+<h3 id="avoid-accessing-workspaceactiveleaf-directly">Avoid accessing <code>workspace.activeLeaf</code> directly</h3>
+<p>If you want to access the active view, use [[getActiveViewOfType|getActiveViewOfType()]] instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">workspace</span>.<span style="color:#a6e22e">getActiveViewOfType</span>(<span style="color:#a6e22e">MarkdownView</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// getActiveViewOfType will return null if the active view is null, or if it&#39;s not a MarkdownView.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">view</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>If you want to access the editor in the active note, use <code>activeEditor</code> instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">workspace</span>.<span style="color:#a6e22e">activeEditor</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">editor</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">editor</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="avoid-managing-references-to-custom-views">Avoid managing references to custom views</h3>
+<p>Managing references to custom view can cause memory leaks or unintended consequences.</p>
+<p><strong>Don&rsquo;t</strong> do this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">registerViewType</span>(<span style="color:#a6e22e">MY_VIEW_TYPE</span>, () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MyCustomView</span>());
+</span></span></code></pre></div><p>Do this instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">registerViewType</span>(<span style="color:#a6e22e">MY_VIEW_TYPE</span>, () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MyCustomView</span>());
+</span></span></code></pre></div><p>To access the view from your plugin, use <code>Workspace.getActiveLeavesOfType()</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">leaf</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">workspace</span>.<span style="color:#a6e22e">getActiveLeavesOfType</span>(<span style="color:#a6e22e">MY_VIEW_TYPE</span>)) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">leaf</span>.<span style="color:#a6e22e">view</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">view</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">MyCustomView</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="vault">Vault</h2>
+<h3 id="prefer-the-editor-api-instead-of-vaultmodify-to-the-active-file">Prefer the Editor API instead of <code>Vault.modify</code> to the active file</h3>
+<p>If you want to edit an active note, use the [[Editor]] interface instead of [[Vault/modify|Vault.modify()]].</p>
+<p>Editor maintains information about the active note, such as cursor position, selection, and folded content. When you use [[Vault/modify|Vault.modify()]] to edit the note, all that information is lost, which leads to a poor experience for the user.</p>
+<p>Editor is also more efficient when making small changes to parts of the note.</p>
+<h3 id="prefer-vaultprocess-instead-of-vaultmodify-to-modify-a-file-in-the-background">Prefer <code>Vault.process</code> instead of <code>Vault.modify</code> to modify a file in the background</h3>
+<p>If you want to edit a note that is not currently opened, use the [[Reference/TypeScript API/Vault/process|Vault.process]] function instead of [[modify|Vault.modify]].</p>
+<p>The <code>process</code> function modifies the file atomically, which means that your plugin won&rsquo;t run into conflicts with other plugins modifying the same file.</p>
+<h3 id="prefer-filemanagerprocessfrontmatter-to-modify-frontmatter-of-a-note">Prefer <code>FileManager.processFrontMatter</code> to modify frontmatter of a note</h3>
+<p>Instead of extracting the frontmatter of a note, parsing and modifying the YAML manually you should use the [[processFrontMatter|FileManager.processFrontMatter]] function.</p>
+<p><code>processFrontMatter</code> runs atomically, so modifying the file will not conflict with other plugins editing the same file.
+It will also ensure a consistent layout of the YAML produced.</p>
+<h3 id="prefer-the-vault-api-over-the-adapter-api">Prefer the Vault API over the Adapter API</h3>
+<p>Obsidian exposes two APIs for file operations: the Vault API (<code>app.vault</code>) and the Adapter API (<code>app.vault.adapter</code>).</p>
+<p>While the file operations in the Adapter API are often more familiar to many developers, the Vault API has two main advantages over the adapter.</p>
+<ul>
+<li><strong>Performance:</strong> The Vault API has a caching layer that can speed up file reads when the file is already known to Obsidian.</li>
+<li><strong>Safety:</strong> The Vault API performs file operations serially to avoid any race conditions, for example when reading a file that is being written to at the same time.</li>
+</ul>
+<h3 id="avoid-iterating-all-files-to-find-a-file-by-its-path">Avoid iterating all files to find a file by its path</h3>
+<p>This is inefficient, especially for large vaults. Use [[getFileByPath|Vault.getFileByPath]], [[getFolderByPath|Vault.getFolderByPath]] or [[getAbstractFileByPath|Vault.getAbstractFileByPath]] instead.</p>
+<p><strong>Don&rsquo;t</strong> do this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">getFiles</span>().<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">file</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">path</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">filePath</span>);
+</span></span></code></pre></div><p>Do this instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">filePath</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;folder/file.md&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// if you want to get a file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">file</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">getFileByPath</span>(<span style="color:#a6e22e">filePath</span>);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">folderPath</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;folder&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// or if you want to get a folder
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">folder</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">getFolderByPath</span>(<span style="color:#a6e22e">folderPath</span>);
+</span></span></code></pre></div><p>If you aren&rsquo;t sure if the path provided is for a folder or a file, use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">abstractFile</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">getAbstractFileByPath</span>(<span style="color:#a6e22e">filePath</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">file</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">TFile</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// it&#39;s a file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">file</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">TFolder</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// it&#39;s a folder
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="use-normalizepath-to-clean-up-user-defined-paths">Use <code>normalizePath()</code> to clean up user-defined paths</h3>
+<p>Use [[normalizePath|normalizePath()]] whenever you accept user-defined paths to files or folders in the vault, or when you construct your own paths in the plugin code.</p>
+<p><code>normalizePath()</code> takes a path and scrubs it to be safe for the file system and for cross-platform use. This function:</p>
+<ul>
+<li>Cleans up the use of forward and backward slashes, such as replacing 1 or more of <code>\</code> or <code>/</code> with a single <code>/</code>.</li>
+<li>Removes leading and trailing forward and backward slashes.</li>
+<li>Replaces any non-breaking spaces, <code>\u00A0</code>, with a regular space.</li>
+<li>Runs the path through <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize">String.prototype.normalize</a>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">normalizePath</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;obsidian&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pathToPlugin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">normalizePath</span>(<span style="color:#e6db74">&#39;//my-folder\file&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// pathToPlugin contains &#34;my-folder/file&#34; not &#34;//my-folder\&#34;
+</span></span></span></code></pre></div><h2 id="editor">Editor</h2>
+<h3 id="change-or-reconfigure-editor-extensions">Change or reconfigure editor extensions</h3>
+<p>If you want to change or reconfigure an [[Editor extensions|editor extension]] after you&rsquo;ve registered using [[registerEditorExtension|registerEditorExtension()]], use [[updateOptions|updateOptions()]] to update all editors.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyPlugin</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Plugin</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">editorExtension</span>: <span style="color:#66d9ef">Extension</span>[] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onload() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">registerEditorExtension</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">editorExtension</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">updateEditorExtension() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Empty the array while keeping the same reference
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// (Don&#39;t create a new array here)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">editorExtension</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create new editor extension
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myNewExtension</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">createEditorExtension</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add it to the array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">editorExtension</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">myNewExtension</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Flush the changes to all editors
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">workspace</span>.<span style="color:#a6e22e">updateOptions</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="styling">Styling</h2>
+<h3 id="no-hardcoded-styling">No hardcoded styling</h3>
+<p><strong>Don&rsquo;t</strong> do this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">containerEl</span>.<span style="color:#a6e22e">createDiv</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;white&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">backgroundColor</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;red&#39;</span>;
+</span></span></code></pre></div><p>To make it easy for users to modify the styling of your plugin you should use CSS classes, as hardcoding the styling in the plugin code makes it impossible to modify with themes and snippets.</p>
+<p><strong>Do</strong> this instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">containerEl</span>.<span style="color:#a6e22e">createDiv</span>({<span style="color:#a6e22e">cls</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;warning-container&#39;</span>});
+</span></span></code></pre></div><p>In the plugins CSS add the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">warning-container</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">color</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">text</span><span style="color:#f92672">-</span><span style="color:#66d9ef">normal</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">background-color</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span>background<span style="color:#f92672">-</span>modifier<span style="color:#f92672">-</span>error);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To make the styling of your plugin consistent with Obsidian and other plugins you should use the [[CSS variables]] provided by Obsidian.
+If there is no variable available that fits in your case, you can create your own.</p>
+<h2 id="typescript">TypeScript</h2>
+<h3 id="prefer-const-and-let-over-var">Prefer <code>const</code> and <code>let</code> over <code>var</code></h3>
+<p>For more information, refer to <a href="https://javascript.plainenglish.io/4-reasons-why-var-is-considered-obsolete-in-modern-javascript-a30296b5f08f">4 Reasons Why var is Considered Obsolete in Modern JavaScript</a>.</p>
+<h3 id="prefer-asyncawait-over-promise">Prefer async/await over Promise</h3>
+<p>Recent versions of JavaScript and TypeScript support the <code>async</code> and <code>await</code> keywords to run code asynchronously, which allow for more readable code than using Promises.</p>
+<p><strong>Don&rsquo;t</strong> do this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">test</span>()<span style="color:#f92672">:</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">string</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">null</span>&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">requestUrl</span>(<span style="color:#e6db74">&#39;https://example.com&#39;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">text</span>
+</span></span><span style="display:flex;"><span>    .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span> <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Do this instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">AsyncTest</span>()<span style="color:#f92672">:</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">string</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">null</span>&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">requestUrl</span>(<span style="color:#e6db74">&#39;https://example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">text</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">text</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+      </main>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.js"></script>
+<script defer src="/js/click-to-copy.js" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

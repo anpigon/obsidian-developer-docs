@@ -1,0 +1,358 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ko" class="no-js">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Obsidian Developer Docs</title>
+<meta name="description" content="이 페이지는 플러그인 작성자가 플러그인을 제출할 때 흔히 받는 리뷰 의견을 나열합니다.
+이 페이지의 가이드라인은 권장 사항이지만, 심각성에 따라 위반 사항을 해결하도록 요구할 수 있습니다.
+[!important] 플러그인 개발자를 위한 정책 [[Developer policies]]와 [[Submission requirements for plugins]]를 반드시 읽어보세요.
+일반 전역 앱 인스턴스 사용 피하기 전역 앱 객체인 app (또는 window.app) 사용을 피하세요. 대신 플러그인 인스턴스에서 제공하는 참조인 this.app을 사용하세요.
+전역 앱 객체는 디버깅 목적으로 만들어졌으며 향후 제거될 수 있습니다.">
+<meta property="og:url" content="http://localhost:1313/ko/plugins/releasing/plugin-guidelines/">
+  <meta property="og:site_name" content="Obsidian Developer Docs">
+  <meta property="og:title" content="Obsidian Developer Docs">
+  <meta property="og:description" content="이 페이지는 플러그인 작성자가 플러그인을 제출할 때 흔히 받는 리뷰 의견을 나열합니다.
+이 페이지의 가이드라인은 권장 사항이지만, 심각성에 따라 위반 사항을 해결하도록 요구할 수 있습니다.
+[!important] 플러그인 개발자를 위한 정책 [[Developer policies]]와 [[Submission requirements for plugins]]를 반드시 읽어보세요.
+일반 전역 앱 인스턴스 사용 피하기 전역 앱 객체인 app (또는 window.app) 사용을 피하세요. 대신 플러그인 인스턴스에서 제공하는 참조인 this.app을 사용하세요.
+전역 앱 객체는 디버깅 목적으로 만들어졌으며 향후 제거될 수 있습니다.">
+  <meta property="og:locale" content="ko">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="plugins">
+
+  <meta itemprop="name" content="Obsidian Developer Docs">
+  <meta itemprop="description" content="이 페이지는 플러그인 작성자가 플러그인을 제출할 때 흔히 받는 리뷰 의견을 나열합니다.
+이 페이지의 가이드라인은 권장 사항이지만, 심각성에 따라 위반 사항을 해결하도록 요구할 수 있습니다.
+[!important] 플러그인 개발자를 위한 정책 [[Developer policies]]와 [[Submission requirements for plugins]]를 반드시 읽어보세요.
+일반 전역 앱 인스턴스 사용 피하기 전역 앱 객체인 app (또는 window.app) 사용을 피하세요. 대신 플러그인 인스턴스에서 제공하는 참조인 this.app을 사용하세요.
+전역 앱 객체는 디버깅 목적으로 만들어졌으며 향후 제거될 수 있습니다.">
+  <meta itemprop="wordCount" content="1369">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Obsidian Developer Docs">
+  <meta name="twitter:description" content="이 페이지는 플러그인 작성자가 플러그인을 제출할 때 흔히 받는 리뷰 의견을 나열합니다.
+이 페이지의 가이드라인은 권장 사항이지만, 심각성에 따라 위반 사항을 해결하도록 요구할 수 있습니다.
+[!important] 플러그인 개발자를 위한 정책 [[Developer policies]]와 [[Submission requirements for plugins]]를 반드시 읽어보세요.
+일반 전역 앱 인스턴스 사용 피하기 전역 앱 객체인 app (또는 window.app) 사용을 피하세요. 대신 플러그인 인스턴스에서 제공하는 참조인 this.app을 사용하세요.
+전역 앱 객체는 디버깅 목적으로 만들어졌으며 향후 제거될 수 있습니다.">
+<link href="/scss/main.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/ko/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">Obsidian Developer Docs</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown d-none d-lg-block">
+        <div class="dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">한국어</a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/plugins/releasing/plugin-guidelines/">English</a></li>
+    </ul>
+</div></li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="사이트에서 검색…"
+    aria-label="사이트에서 검색…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-default td-outer">
+      <main role="main" class="td-main">
+        <p>이 페이지는 플러그인 작성자가 플러그인을 제출할 때 흔히 받는 리뷰 의견을 나열합니다.</p>
+<p>이 페이지의 가이드라인은 권장 사항이지만, 심각성에 따라 위반 사항을 해결하도록 요구할 수 있습니다.</p>
+<blockquote>
+<p>[!important] 플러그인 개발자를 위한 정책
+[[Developer policies]]와 [[Submission requirements for plugins]]를 반드시 읽어보세요.</p></blockquote>
+<h2 id="일반">일반</h2>
+<h3 id="전역-앱-인스턴스-사용-피하기">전역 앱 인스턴스 사용 피하기</h3>
+<p>전역 앱 객체인 <code>app</code> (또는 <code>window.app</code>) 사용을 피하세요. 대신 플러그인 인스턴스에서 제공하는 참조인 <code>this.app</code>을 사용하세요.</p>
+<p>전역 앱 객체는 디버깅 목적으로 만들어졌으며 향후 제거될 수 있습니다.</p>
+<h3 id="불필요한-콘솔-로깅-피하기">불필요한 콘솔 로깅 피하기</h3>
+<p>불필요한 로깅을 피해주세요.
+기본 설정에서는 개발자 콘솔에 오류 메시지만 표시되어야 하며, 디버그 메시지는 표시되지 않아야 합니다.</p>
+<h3 id="폴더를-사용하여-코드-베이스-정리-고려하기">폴더를 사용하여 코드 베이스 정리 고려하기</h3>
+<p>플러그인이 하나 이상의 <code>.ts</code> 파일을 사용하는 경우, 리뷰와 유지보수를 용이하게 하기 위해 폴더로 정리하는 것을 고려해보세요.</p>
+<h3 id="플레이스홀더-클래스-이름-바꾸기">플레이스홀더 클래스 이름 바꾸기</h3>
+<p>샘플 플러그인에는 <code>MyPlugin</code>, <code>MyPluginSettings</code>, <code>SampleSettingTab</code>과 같은 일반적인 클래스에 대한 플레이스홀더 이름이 포함되어 있습니다. 플러그인 이름을 반영하도록 이 이름들을 변경하세요.</p>
+<h2 id="모바일">모바일</h2>
+<p>![[Mobile development#Node and Electron APIs]]</p>
+<p>![[Mobile development#Lookbehind in regular expressions]]</p>
+<h2 id="ui-텍스트">UI 텍스트</h2>
+<p>이 섹션은 설정, 명령어, 버튼 등 사용자 인터페이스의 텍스트 서식 지정에 대한 가이드라인을 나열합니다.</p>
+<p>아래 <strong>Settings → Appearance</strong>의 예시는 사용자 인터페이스 텍스트에 대한 가이드라인을 보여줍니다.</p>
+<p>![[settings-headings.png]]</p>
+<ol>
+<li>[[#Only use headings under settings if you have more than one section.|일반 설정은 상단에 있으며 제목이 없습니다]].</li>
+<li>[[#Avoid &ldquo;settings&rdquo; in settings headings|섹션 제목에는 &ldquo;settings&quot;라는 단어가 포함되지 않습니다]].</li>
+<li>[[#Use Sentence case in UI]].</li>
+</ol>
+<p>Obsidian용 텍스트 작성 및 서식 지정에 대한 자세한 내용은 <a href="https://help.obsidian.md/Contributing&#43;to&#43;Obsidian/Style&#43;guide">스타일 가이드</a>를 참조하세요.</p>
+<h3 id="설정-아래에-섹션이-두-개-이상인-경우에만-제목-사용하기">설정 아래에 섹션이 두 개 이상인 경우에만 제목 사용하기</h3>
+<p>설정 탭에 &ldquo;General&rdquo;, &ldquo;Settings&rdquo; 또는 플러그인 이름과 같은 최상위 제목을 추가하지 마세요.</p>
+<p>설정 아래에 섹션이 두 개 이상 있고 그중 하나에 일반 설정이 포함된 경우, 제목을 추가하지 않고 상단에 유지하세요.</p>
+<p>예를 들어, <strong>Settings → Appearance</strong> 아래의 설정을 보세요.</p>
+<h3 id="설정-제목에-settings-피하기">설정 제목에 &ldquo;settings&rdquo; 피하기</h3>
+<p>설정 탭에서 설정을 정리하기 위해 제목을 추가할 수 있습니다. 이 제목에 &ldquo;settings&quot;라는 단어를 포함하지 마세요. 설정 탭 아래의 모든 것이 설정이므로 모든 제목에 반복하는 것은 중복입니다.</p>
+<ul>
+<li>&ldquo;Advanced settings&rdquo; 대신 &ldquo;Advanced&quot;를 선호합니다.</li>
+<li>&ldquo;Settings for templates&rdquo; 대신 &ldquo;Templates&quot;를 선호합니다.</li>
+</ul>
+<h3 id="ui에서-문장-케이스-사용하기">UI에서 문장 케이스 사용하기</h3>
+<p>UI 요소의 모든 텍스트는 <a href="https://en.wikipedia.org/wiki/Title_case">Title Case</a> 대신 <a href="https://en.wiktionary.org/wiki/sentence_case">Sentence case</a>를 사용해야 합니다. 문장 케이스에서는 문장의 첫 단어와 고유 명사만 대문자로 표기합니다.</p>
+<ul>
+<li>&ldquo;Template Folder Location&rdquo; 대신 &ldquo;Template folder location&quot;을 선호합니다.</li>
+<li>&ldquo;Create New Note&rdquo; 대신 &ldquo;Create new note&quot;를 선호합니다.</li>
+</ul>
+<h3 id="h1-h2-대신-setheading-사용하기"><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> 대신 <code>setHeading</code> 사용하기</h3>
+<p>HTML의 제목 요소를 사용하면 다른 플러그인 간에 스타일이 일관되지 않을 수 있습니다.
+대신 다음을 사용하는 것을 선호해야 합니다:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Setting</span>(<span style="color:#a6e22e">containerEl</span>).<span style="color:#a6e22e">setName</span>(<span style="color:#e6db74">&#39;your heading title&#39;</span>).<span style="color:#a6e22e">setHeading</span>();
+</span></span></code></pre></div><h2 id="보안">보안</h2>
+<h3 id="innerhtml-outerhtml-insertadjacenthtml-피하기"><code>innerHTML</code>, <code>outerHTML</code>, <code>insertAdjacentHTML</code> 피하기</h3>
+<p>사용자 정의 입력을 사용하여 <code>innerHTML</code>, <code>outerHTML</code>, <code>insertAdjacentHTML</code>로 DOM 요소를 만드는 것은 보안 위험을 초래할 수 있습니다.</p>
+<p>다음 예제는 사용자 입력 <code>${name}</code>을 포함하는 문자열을 사용하여 DOM 요소를 만듭니다. <code>name</code>은 <code>&lt;script&gt;alert()&lt;/script&gt;</code>와 같은 다른 DOM 요소를 포함할 수 있으며, 잠재적인 공격자가 사용자의 컴퓨터에서 임의의 코드를 실행하도록 허용할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">showName</span>(<span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">containerElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;.my-container&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 이렇게 하지 마세요
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">containerElement</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`&lt;div class=&#34;my-class&#34;&gt;&lt;b&gt;Your name is: &lt;/b&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/div&gt;`</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>대신, <code>createEl()</code>, <code>createDiv()</code>, <code>createSpan()</code>과 같은 DOM API 또는 Obsidian 헬퍼 함수를 사용하여 프로그래밍 방식으로 DOM 요소를 만드세요. 자세한 내용은 [[HTML elements]]를 참조하세요.</p>
+<p>HTML 요소의 내용을 정리하려면 <code>el.empty();</code>를 사용하세요.</p>
+<h2 id="리소스-관리">리소스 관리</h2>
+<h3 id="플러그인이-언로드될-때-리소스-정리하기">플러그인이 언로드될 때 리소스 정리하기</h3>
+<p>이벤트 리스너와 같이 플러그인에 의해 생성된 모든 리소스는 플러그인이 언로드될 때 파괴되거나 해제되어야 합니다.</p>
+<p>가능하면 [[registerEvent|registerEvent()]] 또는 [[addCommand|addCommand()]]와 같은 메소드를 사용하여 플러그인이 언로드될 때 리소스를 자동으로 정리하세요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyPlugin</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Plugin</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onload() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">registerEvent</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;create&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">onCreate</span>));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onCreate</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">file</span>: <span style="color:#66d9ef">TAbstractFile</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>[!note]
+플러그인이 언로드될 때 제거가 보장되는 리소스는 정리할 필요가 없습니다. 예를 들어, DOM 요소에 <code>mouseenter</code> 리스너를 등록하면 해당 요소가 범위를 벗어날 때 이벤트 리스너가 가비지 컬렉션됩니다.</p></blockquote>
+<h3 id="onunload에서-리프leaf-분리하지-않기"><code>onunload</code>에서 리프(leaf) 분리하지 않기</h3>
+<p>사용자가 플러그인을 업데이트할 때, 열려 있는 모든 리프는 사용자가 어디로 옮겼는지에 관계없이 원래 위치에서 다시 초기화됩니다.</p>
+<h2 id="명령어">명령어</h2>
+<h3 id="명령어에-기본-단축키-설정-피하기">명령어에 기본 단축키 설정 피하기</h3>
+<p>기본 단축키를 설정하면 플러그인 간에 충돌이 발생할 수 있으며 사용자가 이미 구성한 단축키를 덮어쓸 수 있습니다.</p>
+<p>또한 모든 운영 체제에서 사용 가능한 기본 단축키를 선택하기 어렵습니다.</p>
+<h3 id="명령어에-적절한-콜백-유형-사용하기">명령어에 적절한 콜백 유형 사용하기</h3>
+<p>플러그인에 명령어를 추가할 때 적절한 콜백 유형을 사용하세요.</p>
+<ul>
+<li>명령어가 무조건 실행되는 경우 <code>callback</code>을 사용합니다.</li>
+<li>명령어가 특정 조건에서만 실행되는 경우 <code>checkCallback</code>을 사용합니다.</li>
+</ul>
+<p>명령어에 열려 있고 활성화된 마크다운 에디터가 필요한 경우, <code>editorCallback</code> 또는 해당 <code>editorCheckCallback</code>을 사용하세요.</p>
+<h2 id="작업-공간">작업 공간</h2>
+<h3 id="workspaceactiveleaf에-직접-접근-피하기"><code>workspace.activeLeaf</code>에 직접 접근 피하기</h3>
+<p>활성 뷰에 접근하려면 대신 [[getActiveViewOfType|getActiveViewOfType()]]를 사용하세요:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">workspace</span>.<span style="color:#a6e22e">getActiveViewOfType</span>(<span style="color:#a6e22e">MarkdownView</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// getActiveViewOfType은 활성 뷰가 null이거나 MarkdownView가 아닌 경우 null을 반환합니다.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">view</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>활성 노트의 에디터에 접근하려면 대신 <code>activeEditor</code>를 사용하세요:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">workspace</span>.<span style="color:#a6e22e">activeEditor</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">editor</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">editor</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="사용자-정의-뷰에-대한-참조-관리-피하기">사용자 정의 뷰에 대한 참조 관리 피하기</h3>
+<p>사용자 정의 뷰에 대한 참조를 관리하면 메모리 누수나 의도하지 않은 결과를 초래할 수 있습니다.</p>
+<p>이렇게 <strong>하지 마세요</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">registerViewType</span>(<span style="color:#a6e22e">MY_VIEW_TYPE</span>, () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MyCustomView</span>());
+</span></span></code></pre></div><p>대신 이렇게 하세요:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">registerViewType</span>(<span style="color:#a6e22e">MY_VIEW_TYPE</span>, () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MyCustomView</span>());
+</span></span></code></pre></div><p>플러그인에서 뷰에 접근하려면 <code>Workspace.getActiveLeavesOfType()</code>를 사용하세요:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">leaf</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">workspace</span>.<span style="color:#a6e22e">getActiveLeavesOfType</span>(<span style="color:#a6e22e">MY_VIEW_TYPE</span>)) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">leaf</span>.<span style="color:#a6e22e">view</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">view</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">MyCustomView</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="저장소vault">저장소(Vault)</h2>
+<h3 id="활성-파일에-대해-vaultmodify-대신-editor-api-선호하기">활성 파일에 대해 <code>Vault.modify</code> 대신 Editor API 선호하기</h3>
+<p>활성 노트를 편집하려면 [[Vault/modify|Vault.modify()]] 대신 [[Editor]] 인터페이스를 사용하세요.</p>
+<p>Editor는 커서 위치, 선택 영역, 접힌 내용과 같은 활성 노트에 대한 정보를 유지합니다. [[Vault/modify|Vault.modify()]]를 사용하여 노트를 편집하면 모든 정보가 손실되어 사용자 경험이 저하됩니다.</p>
+<p>Editor는 노트의 일부를 작게 변경할 때 더 효율적입니다.</p>
+<h3 id="백그라운드에서-파일을-수정하려면-vaultmodify-대신-vaultprocess-선호하기">백그라운드에서 파일을 수정하려면 <code>Vault.modify</code> 대신 <code>Vault.process</code> 선호하기</h3>
+<p>현재 열려 있지 않은 노트를 편집하려면 [[modify|Vault.modify]] 대신 [[Reference/TypeScript API/Vault/process|Vault.process]] 함수를 사용하세요.</p>
+<p><code>process</code> 함수는 파일을 원자적으로 수정하므로, 플러그인이 동일한 파일을 수정하는 다른 플러그인과 충돌하지 않습니다.</p>
+<h3 id="노트의-프론트매터를-수정하려면-filemanagerprocessfrontmatter-선호하기">노트의 프론트매터를 수정하려면 <code>FileManager.processFrontMatter</code> 선호하기</h3>
+<p>노트의 프론트매터를 추출하고 YAML을 수동으로 파싱하고 수정하는 대신 [[processFrontMatter|FileManager.processFrontMatter]] 함수를 사용해야 합니다.</p>
+<p><code>processFrontMatter</code>는 원자적으로 실행되므로 파일을 수정해도 동일한 파일을 편집하는 다른 플러그인과 충돌하지 않습니다.
+또한 생성된 YAML의 일관된 레이아웃을 보장합니다.</p>
+<h3 id="adapter-api-대신-vault-api-선호하기">Adapter API 대신 Vault API 선호하기</h3>
+<p>Obsidian은 파일 작업을 위한 두 가지 API를 노출합니다: Vault API (<code>app.vault</code>)와 Adapter API (<code>app.vault.adapter</code>).</p>
+<p>Adapter API의 파일 작업이 많은 개발자에게 더 익숙하지만, Vault API는 어댑터에 비해 두 가지 주요 이점이 있습니다.</p>
+<ul>
+<li><strong>성능:</strong> Vault API에는 파일이 이미 Obsidian에 알려진 경우 파일 읽기 속도를 높일 수 있는 캐싱 계층이 있습니다.</li>
+<li><strong>안전성:</strong> Vault API는 동시에 쓰기 중인 파일을 읽는 것과 같은 경쟁 조건을 피하기 위해 파일 작업을 직렬로 수행합니다.</li>
+</ul>
+<h3 id="경로로-파일을-찾기-위해-모든-파일-반복-피하기">경로로 파일을 찾기 위해 모든 파일 반복 피하기</h3>
+<p>이것은 특히 큰 저장소에서 비효율적입니다. 대신 [[getFileByPath|Vault.getFileByPath]], [[getFolderByPath|Vault.getFolderByPath]] 또는 [[getAbstractFileByPath|Vault.getAbstractFileByPath]]를 사용하세요.</p>
+<p>이렇게 <strong>하지 마세요</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">getFiles</span>().<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">file</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">path</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">filePath</span>);
+</span></span></code></pre></div><p>대신 이렇게 하세요:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">filePath</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;folder/file.md&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 파일을 가져오려면
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">file</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">getFileByPath</span>(<span style="color:#a6e22e">filePath</span>);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">folderPath</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;folder&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 또는 폴더를 가져오려면
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">folder</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">getFolderByPath</span>(<span style="color:#a6e22e">folderPath</span>);
+</span></span></code></pre></div><p>제공된 경로가 폴더용인지 파일용인지 확실하지 않은 경우 다음을 사용하세요:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">abstractFile</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">vault</span>.<span style="color:#a6e22e">getAbstractFileByPath</span>(<span style="color:#a6e22e">filePath</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">file</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">TFile</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 파일입니다
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">file</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">TFolder</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 폴더입니다
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="사용자-정의-경로를-정리하기-위해-normalizepath-사용하기">사용자 정의 경로를 정리하기 위해 <code>normalizePath()</code> 사용하기</h3>
+<p>저장소의 파일이나 폴더에 대한 사용자 정의 경로를 받거나 플러그인 코드에서 자체 경로를 구성할 때마다 [[normalizePath|normalizePath()]]를 사용하세요.</p>
+<p><code>normalizePath()</code>는 경로를 받아 파일 시스템 및 크로스 플랫폼 사용에 안전하도록 정리합니다. 이 함수는 다음을 수행합니다:</p>
+<ul>
+<li><code>\</code> 또는 <code>/</code>를 하나 이상의 <code>\</code> 또는 <code>/</code>를 단일 <code>/</code>로 바꾸는 등 순방향 및 역방향 슬래시 사용을 정리합니다.</li>
+<li>선행 및 후행 순방향 및 역방향 슬래시를 제거합니다.</li>
+<li>줄 바꿈 없는 공백 <code>\u00A0</code>을 일반 공백으로 바꿉니다.</li>
+<li>경로를 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize">String.prototype.normalize</a>를 통해 실행합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">normalizePath</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;obsidian&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pathToPlugin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">normalizePath</span>(<span style="color:#e6db74">&#39;//my-folder\file&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// pathToPlugin은 &#34;//my-folder\&#34;가 아닌 &#34;my-folder/file&#34;을 포함합니다
+</span></span></span></code></pre></div><h2 id="에디터">에디터</h2>
+<h3 id="에디터-확장-변경-또는-재구성하기">에디터 확장 변경 또는 재구성하기</h3>
+<p>[[registerEditorExtension|registerEditorExtension()]]을 사용하여 [[Editor extensions|에디터 확장]]을 등록한 후 변경하거나 재구성하려면 [[updateOptions|updateOptions()]]를 사용하여 모든 에디터를 업데이트하세요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyPlugin</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Plugin</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">editorExtension</span>: <span style="color:#66d9ef">Extension</span>[] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onload() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">registerEditorExtension</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">editorExtension</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">updateEditorExtension() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 동일한 참조를 유지하면서 배열 비우기
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// (여기서 새 배열을 만들지 마세요)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">editorExtension</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 새 에디터 확장 만들기
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myNewExtension</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">createEditorExtension</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 배열에 추가하기
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">editorExtension</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">myNewExtension</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 모든 에디터에 변경 사항 적용하기
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">workspace</span>.<span style="color:#a6e22e">updateOptions</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="스타일링">스타일링</h2>
+<h3 id="하드코딩된-스타일링-금지">하드코딩된 스타일링 금지</h3>
+<p>이렇게 <strong>하지 마세요</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">containerEl</span>.<span style="color:#a6e22e">createDiv</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;white&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">backgroundColor</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;red&#39;</span>;
+</span></span></code></pre></div><p>사용자가 플러그인의 스타일링을 쉽게 수정할 수 있도록 하려면 CSS 클래스를 사용해야 합니다. 플러그인 코드에 스타일링을 하드코딩하면 테마와 스니펫으로 수정하는 것이 불가능해집니다.</p>
+<p>대신 이렇게 <strong>하세요</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">containerEl</span>.<span style="color:#a6e22e">createDiv</span>({<span style="color:#a6e22e">cls</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;warning-container&#39;</span>});
+</span></span></code></pre></div><p>플러그인 CSS에 다음을 추가하세요:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">warning-container</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">color</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">text</span><span style="color:#f92672">-</span><span style="color:#66d9ef">normal</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">background-color</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span>background<span style="color:#f92672">-</span>modifier<span style="color:#f92672">-</span>error);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>플러그인의 스타일링을 Obsidian 및 다른 플러그인과 일관되게 만들려면 Obsidian에서 제공하는 [[CSS variables]]를 사용해야 합니다.
+사용 사례에 맞는 변수가 없는 경우 직접 만들 수 있습니다.</p>
+<h2 id="typescript">TypeScript</h2>
+<h3 id="var-대신-const와-let-선호하기"><code>var</code> 대신 <code>const</code>와 <code>let</code> 선호하기</h3>
+<p>자세한 내용은 <a href="https://javascript.plainenglish.io/4-reasons-why-var-is-considered-obsolete-in-modern-javascript-a30296b5f08f">현대 JavaScript에서 var가 구식으로 간주되는 4가지 이유</a>를 참조하세요.</p>
+<h3 id="promise-대신-asyncawait-선호하기">Promise 대신 async/await 선호하기</h3>
+<p>최신 버전의 JavaScript와 TypeScript는 비동기 코드를 실행하기 위해 <code>async</code> 및 <code>await</code> 키워드를 지원하여 Promise를 사용하는 것보다 더 읽기 쉬운 코드를 작성할 수 있습니다.</p>
+<p>이렇게 <strong>하지 마세요</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">test</span>()<span style="color:#f92672">:</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">string</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">null</span>&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">requestUrl</span>(<span style="color:#e6db74">&#39;https://example.com&#39;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">text</span>
+</span></span><span style="display:flex;"><span>    .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span> <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>대신 이렇게 하세요:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">AsyncTest</span>()<span style="color:#f92672">:</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">string</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">null</span>&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">requestUrl</span>(<span style="color:#e6db74">&#39;https://example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">text</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">text</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+      </main>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.js"></script>
+<script defer src="/js/click-to-copy.js" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

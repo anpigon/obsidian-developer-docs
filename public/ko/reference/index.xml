@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>References on Obsidian Developer Docs</title>
+    <link>http://localhost:1313/ko/reference/</link>
+    <description>Recent content in References on Obsidian Developer Docs</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <atom:link href="http://localhost:1313/ko/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/ko/reference/css-variables/about-styling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ko/reference/css-variables/about-styling/</guid>
+      <description>&lt;p&gt;Obsidian 앱은 &lt;a href=&#34;https://ko.wikipedia.org/wiki/CSS&#34;&gt;Cascading Style Sheets&lt;/a&gt;(CSS)를 사용하여 사용자 인터페이스의 디자인을 제어합니다. CSS는 웹사이트 및 웹 기반 앱에 사용되는 것과 동일한 마크업 언어이므로 온라인에서 CSS 사용 및 편집 방법을 배우는 데 도움이 되는 많은 리소스를 찾을 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;Obsidian에는 일관되게 아름다운 사용자 인터페이스를 가능하게 하는 수백 개의 [[CSS variables]]가 포함되어 있습니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;플러그인용&#34;&gt;플러그인용&lt;/h2&gt;&#xA;&lt;p&gt;자신만의 사용자 정의 요소에 내장된 CSS 변수를 사용하면 플러그인에서 아름답고 커뮤니티 테마와 호환되는 네이티브 느낌의 사용자 인터페이스를 만들 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;styles.css&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/ko/reference/css-variables/css-variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ko/reference/css-variables/css-variables/</guid>
+      <description>&lt;h3 id=&#34;기초&#34;&gt;기초&lt;/h3&gt;&#xA;&lt;p&gt;색상, 간격, 타이포그래피 등을 위한 추상화된 변수&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Borders]]&lt;/li&gt;&#xA;&lt;li&gt;[[Colors]]&lt;/li&gt;&#xA;&lt;li&gt;[[Cursor]]&lt;/li&gt;&#xA;&lt;li&gt;[[Reference/CSS variables/Foundations/Icons|Icons]]&lt;/li&gt;&#xA;&lt;li&gt;[[Layers]]&lt;/li&gt;&#xA;&lt;li&gt;[[Radiuses]]&lt;/li&gt;&#xA;&lt;li&gt;[[Spacing]]&lt;/li&gt;&#xA;&lt;li&gt;[[Typography]]&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;구성-요소&#34;&gt;구성 요소&lt;/h3&gt;&#xA;&lt;p&gt;앱 전체에서 사용되는 대화형 구성 요소&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Button]]&lt;/li&gt;&#xA;&lt;li&gt;[[Checkbox]]&lt;/li&gt;&#xA;&lt;li&gt;[[Color input]]&lt;/li&gt;&#xA;&lt;li&gt;[[Dialog]]&lt;/li&gt;&#xA;&lt;li&gt;[[Dragging]]&lt;/li&gt;&#xA;&lt;li&gt;[[Indentation guides]]&lt;/li&gt;&#xA;&lt;li&gt;[[Modal]]&lt;/li&gt;&#xA;&lt;li&gt;[[Multi-select]]&lt;/li&gt;&#xA;&lt;li&gt;[[Navigation]]&lt;/li&gt;&#xA;&lt;li&gt;[[Popover]]&lt;/li&gt;&#xA;&lt;li&gt;[[Slider]]&lt;/li&gt;&#xA;&lt;li&gt;[[Tabs]]&lt;/li&gt;&#xA;&lt;li&gt;[[Text input]]&lt;/li&gt;&#xA;&lt;li&gt;[[Toggle]]&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;에디터&#34;&gt;에디터&lt;/h3&gt;&#xA;&lt;p&gt;텍스트 파일 편집 및 읽기에 사용되는 콘텐츠 유형 및 변수&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Block]]&lt;/li&gt;&#xA;&lt;li&gt;[[Blockquote]]&lt;/li&gt;&#xA;&lt;li&gt;[[Callout]]&lt;/li&gt;&#xA;&lt;li&gt;[[Code]]&lt;/li&gt;&#xA;&lt;li&gt;[[Embed]]&lt;/li&gt;&#xA;&lt;li&gt;[[File]]&lt;/li&gt;&#xA;&lt;li&gt;[[Footnote]]&lt;/li&gt;&#xA;&lt;li&gt;[[Headings]]&lt;/li&gt;&#xA;&lt;li&gt;[[Horizontal rule]]&lt;/li&gt;&#xA;&lt;li&gt;[[Inline title]]&lt;/li&gt;&#xA;&lt;li&gt;[[Link]]&lt;/li&gt;&#xA;&lt;li&gt;[[List]]&lt;/li&gt;&#xA;&lt;li&gt;[[Properties]]&lt;/li&gt;&#xA;&lt;li&gt;[[Table]]&lt;/li&gt;&#xA;&lt;li&gt;[[Tag]]&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;플러그인&#34;&gt;플러그인&lt;/h3&gt;&#xA;&lt;p&gt;코어 플러그인의 인터페이스 요소와 관련된 변수&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/ko/reference/manifest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ko/reference/manifest/</guid>
+      <description>&lt;p&gt;이 페이지는 매니페스트 &lt;code&gt;manifest.json&lt;/code&gt;의 스키마를 설명합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;속성&#34;&gt;속성&lt;/h2&gt;&#xA;&lt;p&gt;다음 속성은 플러그인과 테마 모두에 사용할 수 있습니다.&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;속성&lt;/th&gt;&#xA;          &lt;th&gt;타입&lt;/th&gt;&#xA;          &lt;th&gt;필수&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;code&gt;author&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;예&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;저자 이름.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;code&gt;minAppVersion&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;예&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;최소 필수 Obsidian 버전.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;code&gt;name&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;예&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;표시 이름.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;code&gt;version&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;예&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://semver.org/&#34;&gt;유의적 버전&lt;/a&gt;을 사용하는 &lt;code&gt;x.y.z&lt;/code&gt; 형식의 버전.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;code&gt;authorUrl&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;아니요&lt;/td&gt;&#xA;          &lt;td&gt;저자 웹사이트 URL.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;code&gt;fundingUrl&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;string&lt;/code&gt; 또는 &lt;a href=&#34;http://localhost:1313/ko/reference/manifest/#fundingurl&#34;&gt;&lt;code&gt;object&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td&gt;아니요&lt;/td&gt;&#xA;          &lt;td&gt;사용자가 프로젝트를 재정적으로 지원할 수 있는 URL 또는 여러 URL.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;플러그인-관련-속성&#34;&gt;플러그인 관련 속성&lt;/h2&gt;&#xA;&lt;p&gt;다음 속성은 플러그인에서만 사용할 수 있습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/ko/reference/versions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ko/reference/versions/</guid>
+      <description>&lt;p&gt;Obsidian의 새 버전마다 플러그인을 위한 새로운 기능이 도입될 수 있습니다. 안타깝게도 플러그인에서 최근에 도입된 기능을 사용하면 아직 최신 버전의 Obsidian으로 업데이트하지 않은 사용자의 설치가 중단될 수 있습니다. 이를 방지하기 위해 &lt;code&gt;versions.json&lt;/code&gt;을 사용하면 사용자 Obsidian 앱 버전에 따라 플러그인 버전을 제어할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;versions.json&lt;/code&gt;에는 JSON 객체가 포함되어 있으며, 키는 플러그인 버전이고 값은 해당 &lt;code&gt;minAppVersion&lt;/code&gt;입니다.&lt;/p&gt;&#xA;&lt;p&gt;사용자가 [[Reference/Manifest|매니페스트]]의 &lt;code&gt;minAppVersion&lt;/code&gt;보다 낮은 Obsidian 앱 버전으로 플러그인을 설치하려고 하면 Obsidian은 플러그인 저장소의 루트에서 &lt;code&gt;versions.json&lt;/code&gt; 파일을 찾습니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
