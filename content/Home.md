@@ -1,5 +1,6 @@
 ---
 cssclasses: hide-title
+title: Obsidian 개발자 문서
 ---
 # Obsidian 개발자 문서
 
