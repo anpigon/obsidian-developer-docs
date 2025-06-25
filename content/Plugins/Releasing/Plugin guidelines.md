@@ -169,13 +169,13 @@ if (editor) {
 이렇게 **하지 마세요**:
 
 ```ts
-this.registerViewType(MY_VIEW_TYPE, () => this.view = new MyCustomView());
+this.registerView(MY_VIEW_TYPE, () => this.view = new MyCustomView());
 ```
 
 대신 이렇게 하세요:
 
 ```ts
-this.registerViewType(MY_VIEW_TYPE, () => new MyCustomView());
+this.registerView(MY_VIEW_TYPE, () => new MyCustomView());
 ```
 
 플러그인에서 뷰에 접근하려면 `Workspace.getActiveLeavesOfType()`를 사용하세요:
